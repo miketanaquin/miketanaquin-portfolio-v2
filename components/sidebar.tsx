@@ -85,17 +85,10 @@ const Sidebar = () => {
 
                     {sideBarItems.map((item, index) => {
                         return (
-                            <div className="grid gap-4 py-4">
-                                <SheetClose asChild className="grid grid-cols-4 items-center gap-4 font-medium">
-                                    {/* <Link href={item.link} key={index} className={`${item.link === pathName && "text-slate-100 border-b-2 border-orange-500"}`}>
-                                        <h1 className="hover:text-slate-300 hover:cursor-pointer">{item.name}</h1>
-                                    </Link> */}
-                                    <div
-                                        key={item.id}
-                                        className={`cursor-pointer ${activeSection === item.id ? 'text-slate-100 underline underline-offset-8 decoration-orange-500' : ''
-                                            }`}
-                                        onClick={() => handleScrollToSection(item.id)}
-                                    >
+                            <div className="grid gap-4 py-4" key={index}>
+                                <SheetClose asChild className="grid grid-cols-4 items-center gap-4 font-medium" >
+                                    <div className={`cursor-pointer ${activeSection === item.id ? 'text-slate-100 underline underline-offset-8 decoration-orange-500' : ''}`}
+                                        onClick={() => handleScrollToSection(item.id)}>
                                         {item.name}
                                     </div>
                                 </SheetClose>

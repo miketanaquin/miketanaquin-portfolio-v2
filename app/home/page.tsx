@@ -46,7 +46,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="mt-5 flex justify-center lg:w-2/5 lg:justify-end relative">
-                        <img className="brightness-75 contrast-25 border-r-2 border-b-2 w-auto h-auto border-orange-500 z-10 hover:brightness-100 hover:duration-1000" src="/photo/Main-Picture.png" />
+                        <img alt='tanaquin' className="brightness-75 contrast-25 border-r-2 border-b-2 w-auto h-auto border-orange-500 z-10 hover:brightness-100 hover:duration-1000" src="/photo/Main-Picture.png" />
                         <div className="w-5/6 h-5/6 bg-slate-600 absolute bottom-10 right-0 blur-3xl"></div>
                         <div className="w-5/6 h-5/6 bg-slate-600 absolute bottom-0 right-10 blur-3xl"></div>
                         <div className="w-5/6 h-5/6 bg-slate-800 absolute -bottom-10 right-0 blur-3xl"></div>

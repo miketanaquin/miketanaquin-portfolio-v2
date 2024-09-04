@@ -1,24 +1,26 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useMemo } from "react";
 // import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Nav = () => {
-    const navItems = [
-        {
-            name: "Home",
-            id: "home",
-        },
-        {
-            name: "Projects",
-            id: "projects",
-        },
-        {
-            name: "About",
-            id: "about",
-        },
-    ];
+    const navItems = useMemo(() => [{
+        name: "Home",
+        id: "home",
+    },
+    {
+        name: "Projects",
+        id: "projects",
+    },
+    {
+        name: "About",
+        id: "about",
+    },], []); // Memoize navItems
+
+    // const navItems = [
+
+    // ];
 
     // const pathName = usePathname();
 
@@ -52,7 +54,7 @@ const Nav = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [navItems]);
 
     const handleScrollToSection = (id: any) => {
         const section = document.getElementById(id);
@@ -68,7 +70,7 @@ const Nav = () => {
                     // </Link>
                     <>
                         <div
-                            key={item.id}
+                            key={index}
                             className={`cursor-pointer ${activeSection === item.id ? 'text-slate-100 underline underline-offset-8 decoration-orange-500' : ''
                                 }`}
                             onClick={() => handleScrollToSection(item.id)}
