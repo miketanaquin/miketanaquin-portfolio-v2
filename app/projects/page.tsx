@@ -66,6 +66,8 @@ const projectItems = [
 
 const words = `Explore the diverse range of applications I've developed, each reflecting my commitment to quality, innovation, and a seamless user experience.`;
 
+
+
 const Projects = () => {
 
     return (
@@ -115,12 +117,12 @@ const Projects = () => {
                                     </>
                                 ))}
                             </div>
-
                             <Meteors number={20} />
                         </ScrollArea>
                     </div>
                 </div>
             </section>
+
         </>
     )
 }
