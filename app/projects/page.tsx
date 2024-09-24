@@ -6,6 +6,14 @@ import React from 'react'
 
 const projectItems = [
     {
+        title: "CCK Philippines Website",
+        description: `I collaborated closely with my teammate to design and develop the CCK Philippines website with the goal of increasing client engagement and attracting new business opportunities. Our focus was on creating a user-friendly platform that effectively showcases the company's services and strengths, ensuring a positive experience for potential clients while maximizing online visibility and brand appeal. This project allowed us to apply strategic design and development techniques, resulting in a website that serves as a powerful tool for client acquisition and company growth.`,
+        exos: `Web App`,
+        tech: `Javascript, React js, Tailwind CSS, TypeScript, Next js, PHP, Laravel, Inertia js`,
+        db: `None`,
+        tasktype: `Developed Several functions and Front end design`
+    },
+    {
         title: "This Portfolio",
         description: `I developed this portfolio to promote and showcase my skills and the projects I have completed throughout my career as a software developer. The portfolio includes detailed information about my background, expertise, and a means to contact me for professional inquiries.`,
         exos: `Web App`,
