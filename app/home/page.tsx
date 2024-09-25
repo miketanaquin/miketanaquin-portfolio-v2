@@ -25,7 +25,7 @@ const Home = () => {
                 }} className="container pt-20">
                 <div className="flex flex-col md:flex-row md:justify-between gap-3">
                     <div className="flex flex-col lg:w-3/5 lg:gap-8 md:justify-center gap-5">
-                        <div className="text-3xl font-semibold dark:text-slate-100 md:text-4xl lg:text-5xl xl:text-6xl text-wrap tracking-tight">
+                        <div className="text-3xl font-semibold text-wrap tracking-tight  dark:text-slate-100 md:text-4xl lg:text-5xl xl:text-6xl ">
                             <h1>
                                 One Line of Code at a Time.
                             </h1>

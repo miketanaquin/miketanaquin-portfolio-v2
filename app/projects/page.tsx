@@ -165,7 +165,7 @@ const Projects = () => {
                         <div className="h-full lg:w-1/2">
                             {projectItems.map((item, index) => (
                                 <>
-                                    <div className="p-3" key={index}>
+                                    <div className="py-3" key={index}>
                                         <div className='mb-5'>
                                             <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
                                         </div>

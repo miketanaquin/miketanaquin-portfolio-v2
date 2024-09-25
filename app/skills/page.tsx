@@ -162,7 +162,7 @@ const Skills = () => {
         <section className='w-full h-1/3 bg-slate-700'>
             <div className="container">
                 <div className="flex flex-col md:flex-row justify-center gap-6">
-                    <div className='flex flex-col justify-center text-sm text-center md:w-1/4 mt-8 md:mt-0 md:text-start lg:text-lg font-light text-wrap '>
+                    <div className='flex flex-col justify-center text-sm text-justify md:w-1/4 mt-8 md:mt-0 md:text-start lg:text-lg font-light text-wrap '>
                         <h1>Explore the diverse set of technologies that drive my projects. From modern front-end frameworks to robust back-end solutions, I leverage a variety of tools to craft innovative and efficient applications.
                         </h1>
                     </div>
