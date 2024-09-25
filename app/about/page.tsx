@@ -14,7 +14,7 @@ const About = () => {
                         delay: 0.5,
                         duration: 0.7,
                         ease: "easeInOut",
-                    }} className="relative flex flex-col py-28 md:flex-row">
+                    }} className="relative flex flex-col py-16 md:flex-row">
                     <div className="my-3 md:w-1/3 md:flex md:flex-col md:justify-center">
                         <h1 className='text-3xl lg:text-5xl font-medium z-10'>About</h1>
                     </div>

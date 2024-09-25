@@ -1,6 +1,6 @@
 "use client";
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 const projectItems = [
     {
@@ -70,118 +70,139 @@ const projectItems = [
 
 ]
 
+// Define an array of 3 colors to loop through
+const colors = ['bg-zinc-800', 'bg-slate-800', 'bg-black'];
+
 const words = `Explore the diverse range of applications I've developed, each reflecting my commitment to quality, innovation, and a seamless user experience.`;
 
-
-
 const Projects = () => {
+    // State to track the current color index
+    const [colorIndex, setColorIndex] = useState(0);
+
+    useEffect(() => {
+        // Function to change background color based on scroll position
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+
+            // Calculate the current section based on scroll position and total number of colors
+            const newColorIndex = Math.floor(scrollY / windowHeight) % colors.length;
+
+            // Update the state with the new color index
+            setColorIndex(newColorIndex);
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Cleanup event listener on unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+
+    }, []);
 
     return (
         <>
-            {/* <section id='projects' className='w-screen h-fit bg-zinc-900'>
-                <div className="container py-10 relative">
-                    <div className="w-4/5 h-4/5 bg-gray-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div>
-                    <div className='flex flex-col lg:flex-row lg:gap-8'>
-                        <div className='sticky top-96 flex flex-col mb-5 h-fit lg:w-1/2'>
-                            <h1 className='text-3xl lg:text-5xl font-medium mb-3 z-10'>Projects</h1>
-                            <TextGenerateEffect className='z-10' words={words} />
-                        </div>
-                        <ScrollArea className="h-svh rounded-lg border-gray-500 border lg:w-1/2 ">
-                            <div className="px-4">
-                                {projectItems.map((item, index) => (
-                                    <>
-                                        <div className="border-b-2 border-gray-700 py-3 my-5 p-3 ">
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
-                                            </div>
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
-                                                <span className=' text-slate-400'>{item.description}</span>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
-                                                    <span className=' text-slate-400'>{item.exos}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
-                                                    <span className=' text-slate-400'>{item.tech}</span>
-                                                </div>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>DataBase:</h1>
-                                                    <span className=' text-slate-400'>{item.db}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
-                                                    <span className=' text-slate-400'>{item.tasktype}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </>
-                                ))}
-                            </div>
-                            <Meteors number={20} />
-                        </ScrollArea>
-                    </div>
-                </div>
-            </section> */}
-            <section id='projects' className='w-full min-h-screen relative bg-zinc-900'>
+            {/* Dynamically apply background color to the whole projects section */}
+            {/* <section id='projects' className={`w-full min-h-screen ${colors[colorIndex]} transition-colors duration-500`}>
                 <div className="container py-10 ">
                     <div className='flex flex-col lg:flex-row lg:gap-8'>
-                        <div className='relative lg:sticky lg:top-1/3 flex flex-col mb-5 lg:mb-0 h-full lg:w-1/2'>
+                        <div className='relative lg:sticky lg:top-1/3 flex flex-col py-5 h-full lg:w-1/2'>
                             <div className="w-full h-full bg-slate-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div>
                             <div className="w-1/2 h-1/2 bg-slate-700/90 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div>
                             <h1 className='text-3xl lg:text-5xl font-medium mb-3 z-10'>Projects</h1>
                             <TextGenerateEffect words={words} />
                         </div>
-                        <div className="h-full lg:w-1/2 ">
-                            <div className="px-4 z-20">
-                                {projectItems.map((item, index) => (
-                                    <>
-                                        <div className=" py-3 my-5 p-3" key={index}>
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
-                                            </div>
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
-                                                <span className=' text-slate-400'>{item.description}</span>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
-                                                    <span className=' text-slate-400'>{item.exos}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
-                                                    <span className=' text-slate-400'>{item.tech}</span>
-                                                </div>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>DataBase:</h1>
-                                                    <span className=' text-slate-400'>{item.db}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
-                                                    <span className=' text-slate-400'>{item.tasktype}</span>
-                                                </div>
-                                            </div>
-                                            <div className="p-[.5px] mt-5 bg-gradient-to-r from-orange-500/0  via-orange-500 to-orange-500/0 rounded-lg"></div>
+                        <div className="h-full lg:w-1/2">
+                            {projectItems.map((item, index) => (
+                                <section className="py-5 min-h-screen" key={index}>
+                                    <div className='mb-5'>
+                                        <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
+                                    </div>
+                                    <div className='mb-5'>
+                                        <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
+                                        <span className='text-slate-400'>{item.description}</span>
+                                    </div>
+                                    <div className='grid grid-cols-2'>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
+                                            <span className='text-slate-400'>{item.exos}</span>
                                         </div>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
+                                            <span className='text-slate-400'>{item.tech}</span>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2'>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Database:</h1>
+                                            <span className='text-slate-400'>{item.db}</span>
+                                        </div>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
+                                            <span className='text-slate-400'>{item.tasktype}</span>
+                                        </div>
+                                    </div>
+                                    <div className="p-[.5px] mt-5 bg-gradient-to-r from-orange-500/0 via-orange-500 to-orange-500/0 rounded-lg"></div>
+                                </section>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section> */}
 
-                                    </>
-                                ))}
-
-                            </div>
-
+            <section id='projects' className={`w-full min-h-screen ${colors[colorIndex]} transition-colors duration-500 `}>
+                <div className="container py-10 ">
+                    <div className='flex flex-col lg:flex-row lg:gap-8'>
+                        <div className='relative lg:sticky lg:top-1/3 flex flex-col h-full lg:w-1/2'>
+                            {/* <div className="w-full h-full bg-slate-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div>
+                            <div className="w-1/2 h-1/2 bg-slate-700/90 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div> */}
+                            <h1 className='text-3xl lg:text-5xl font-medium mb-3 z-10'>Projects</h1>
+                            <TextGenerateEffect words={words} />
+                        </div>
+                        <div className="h-full lg:w-1/2">
+                            {projectItems.map((item, index) => (
+                                <>
+                                    <div className="p-3" key={index}>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
+                                        </div>
+                                        <div className='mb-5'>
+                                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
+                                            <span className=' text-slate-400'>{item.description}</span>
+                                        </div>
+                                        <div className='grid grid-cols-2'>
+                                            <div className='mb-5'>
+                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
+                                                <span className=' text-slate-400'>{item.exos}</span>
+                                            </div>
+                                            <div className='mb-5'>
+                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
+                                                <span className=' text-slate-400'>{item.tech}</span>
+                                            </div>
+                                        </div>
+                                        <div className='grid grid-cols-2'>
+                                            <div className='mb-5'>
+                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>DataBase:</h1>
+                                                <span className=' text-slate-400'>{item.db}</span>
+                                            </div>
+                                            <div className='mb-5'>
+                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
+                                                <span className=' text-slate-400'>{item.tasktype}</span>
+                                            </div>
+                                        </div>
+                                        <div className="p-[.5px] mt-5 bg-gradient-to-r from-orange-500/0  via-orange-500 to-orange-500/0 rounded-lg"></div>
+                                    </div>
+                                </>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
         </>
-    )
-}
+    );
+};
 
 export default Projects;
