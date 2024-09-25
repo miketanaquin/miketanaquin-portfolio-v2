@@ -59,7 +59,6 @@ const Nav = () => {
     const handleScrollToSection = (id: any) => {
         const section = document.getElementById(id);
         section.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(id); // Set active section when clicked
     };
     return (
         <div className="hidden md:flex flex-row dark:text-slate-100 font-medium text-lg gap-8 md:text-xl lg:text-2xl ">

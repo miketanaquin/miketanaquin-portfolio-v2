@@ -8,7 +8,7 @@ import Nav from "./navbar";
 
 const Header = () => {
     return (
-        <header className="py-4 dark:text-slate-100 w-screen md:mb-5 fixed z-50 bg-zinc-900">
+        <header className="py-4 dark:text-slate-100 w-full md:mb-5 fixed z-50 bg-zinc-900 overflow-x-hidden">
             <div className="container mx-auto flex gap-2 md:justify-between items-center">
                 <Sidebar />
                 <Link href="/">

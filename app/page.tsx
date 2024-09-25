@@ -8,13 +8,13 @@ import Skills from "./skills/page";
 export default function Page() {
   return (
     <>
-      <main className="overflow-x-hidden">
-        <Home />
-        <Skills />
-        <Projects />
-        <About />
-        <Footer />
-      </main>
+      {/* <main > */}
+      <Home />
+      <Skills />
+      <Projects />
+      <About />
+      <Footer />
+      {/* </main> */}
     </>
   );
 }

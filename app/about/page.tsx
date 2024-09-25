@@ -2,20 +2,27 @@
 
 import React from 'react'
 import Link from "next/link";
-
+import { motion } from 'framer-motion';
 
 const About = () => {
     return (
-        <section id='about' className='w-screen h-auto bg-zinc-900'>
-            <div className="container">
-                <div className="flex flex-col py-28 md:flex-row">
-                    <div className="my-3 md:w-1/3 md:flex md:flex-col md:justify-center relative">
+        <section id='about' className='w-full h-auto  bg-zinc-900'>
+            <div className="container overflow-x-hidden">
+                <motion.div
+                    initial={{ opacity: 0.0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                        delay: 0.5,
+                        duration: 0.7,
+                        ease: "easeInOut",
+                    }} className="relative flex flex-col py-28 md:flex-row">
+                    {/* <div className="w-2/3 h-2/3 bg-gray-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div> */}
+                    <div className="my-3 md:w-1/3 md:flex md:flex-col md:justify-center">
                         <h1 className='text-3xl lg:text-5xl font-medium z-10'>About</h1>
                     </div>
-                    <div className="w-auto h-fit flex flex-col gap-3 md:w-2/3 relative md:gap-5">
-                        {/* <div className="w-1/2 h-1/2 bg-gray-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl rounded-full"></div> */}
+                    <div className="w-auto h-fit flex flex-col gap-3 md:w-2/3  md:gap-5">
                         <div className="flex flex-col gap-3 md:flex-row z-10">
-                            <div className='md:w-1/3 md:flex md:flex-col md:justify-center relative'>
+                            <div className='md:w-1/3 md:flex md:flex-col md:justify-center'>
                                 <h1 className='text-slate-50 text-xl font-medium font-sans'>Background</h1>
                             </div>
                             <div className="flex flex-col gap-1 p-3 text-wrap md:w-2/3 border-b-2 border-gray-700">
@@ -70,7 +77,7 @@ const About = () => {
                         </div>
 
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     )

@@ -14,7 +14,7 @@ const Home = () => {
     };
 
     return (
-        <div id='home' className="section w-screen h-fit overflow-hidden bg-white dark:bg-zinc-900 pb-20 lg:pb-36">
+        <div id='home' className="section w-full h-fit overflow-x-hidden bg-white dark:bg-zinc-900 pb-20 lg:pb-36">
             <Header />
             <motion.div initial={{ opacity: 0.0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -12,7 +12,7 @@ const Footer = () => {
     };
 
     return (
-        <div className="section w-screen h-auto overflow-x-hidden bg-slate-500">
+        <div className="section w-full h-auto  bg-slate-500">
             <div className="container py-5">
                 <div className='flex flex-col md:flex-row gap-3 text-gray-300'>
                     <div className="flex flex-col gap-3 justify-center md:w-1/3">
