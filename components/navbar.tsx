@@ -16,13 +16,7 @@ const Nav = () => {
     {
         name: "About",
         id: "about",
-    },], []); // Memoize navItems
-
-    // const navItems = [
-
-    // ];
-
-    // const pathName = usePathname();
+    },], []);
 
     const [activeSection, setActiveSection] = useState('');
 
@@ -64,9 +58,6 @@ const Nav = () => {
         <div className="hidden md:flex flex-row dark:text-slate-100 font-medium text-lg gap-8 md:text-xl lg:text-2xl ">
             {navItems.map((item, index) => {
                 return (
-                    // <Link href={item.id} key={index} className={`${item.id === pathName && "text-slate-100 underline underline-offset-8 decoration-orange-500 "}`}>
-                    //     <h1 className="hover:text-slate-300 hover:cursor-pointer">{item.name}</h1>
-                    // </Link>
                     <>
                         <div
                             key={index}

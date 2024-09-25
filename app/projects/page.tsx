@@ -140,7 +140,7 @@ const Projects = () => {
                             <div className="px-4 z-20">
                                 {projectItems.map((item, index) => (
                                     <>
-                                        <div className=" py-3 my-5 p-3">
+                                        <div className=" py-3 my-5 p-3" key={index}>
                                             <div className='mb-5'>
                                                 <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
                                             </div>
