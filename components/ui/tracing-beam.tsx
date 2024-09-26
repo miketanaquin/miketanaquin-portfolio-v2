@@ -39,7 +39,7 @@ export const TracingBeam = ({
         }
     );
     const y2 = useSpring(
-        useTransform(scrollYProgress, [0, 1], [50, svgHeight - 200]),
+        useTransform(scrollYProgress, [0, 1], [50, svgHeight - 100]),
         {
             stiffness: 500,
             damping: 90,
@@ -54,8 +54,8 @@ export const TracingBeam = ({
             <div className="absolute -left-12 top-3">
                 <motion.div
                     transition={{
-                        duration: 0.2,
-                        delay: 0.3,
+                        duration: 0.1,
+                        delay: 0,
                     }}
                     animate={{
                         boxShadow:
@@ -67,8 +67,8 @@ export const TracingBeam = ({
                 >
                     <motion.div
                         transition={{
-                            duration: 0.2,
-                            delay: 0.3,
+                            duration: 0.1,
+                            delay: 0,
                         }}
                         animate={{
                             backgroundColor:
