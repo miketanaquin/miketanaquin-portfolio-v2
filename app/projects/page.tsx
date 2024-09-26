@@ -1,4 +1,5 @@
 "use client";
+import ProjectItems from '@/components/project-items';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { TracingBeam } from '@/components/ui/tracing-beam';
 import React, { useEffect, useState } from 'react';
@@ -165,42 +166,7 @@ const Projects = () => {
                                 <h1 className='text-3xl lg:text-5xl font-medium mb-3 z-10'>Projects</h1>
                                 <TextGenerateEffect words={words} />
                             </div>
-                            <div className="h-full lg:w-1/2">
-                                {projectItems.map((item, index) => (
-                                    <>
-                                        <div className="py-3" key={index}>
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
-                                            </div>
-                                            <div className='mb-5'>
-                                                <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
-                                                <span className=' text-slate-400'>{item.description}</span>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
-                                                    <span className=' text-slate-400'>{item.exos}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
-                                                    <span className=' text-slate-400'>{item.tech}</span>
-                                                </div>
-                                            </div>
-                                            <div className='grid grid-cols-2'>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>DataBase:</h1>
-                                                    <span className=' text-slate-400'>{item.db}</span>
-                                                </div>
-                                                <div className='mb-5'>
-                                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
-                                                    <span className=' text-slate-400'>{item.tasktype}</span>
-                                                </div>
-                                            </div>
-                                            <div className="p-[.5px] mt-5 bg-gradient-to-r from-orange-500/0  via-orange-500 to-orange-500/0 rounded-lg"></div>
-                                        </div>
-                                    </>
-                                ))}
-                            </div>
+                            <ProjectItems items={projectItems} />
                         </div>
                     </TracingBeam>
                 </div>
