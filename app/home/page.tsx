@@ -32,7 +32,7 @@ const Home = () => {
                         </div>
                         <div className="font-extralight text-md text-wrap tracking-tight dark:text-slate-300 md:text-lg md:my-0 xl:text-2xl">
                             <h2>
-                                Hi, I'm <span className="text-orange-500 font-semibold "> Mike Louie Tañaquin</span>. A dedicated junior software developer who creates innovative web applications and seamless user experiences by turning ideas into reality through code.
+                                Hi, I'm <span className="text-orange-500 font-semibold "> Mike Louie Tañaquin</span>. A dedicated mid-level front-end developer who creates innovative web applications and seamless user experiences by turning ideas into reality through code.
                             </h2>
                         </div>
                         <div className="flex justify-center text-center">

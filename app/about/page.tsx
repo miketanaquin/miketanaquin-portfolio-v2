@@ -35,15 +35,15 @@ const About = () => {
                                 <h1 className='text-slate-50 text-xl font-medium font-sans'>Work Experience</h1>
                             </div>
                             <div className='flex flex-col gap-3 md:w-2/3 md:flex md:flex-row border-b-2 border-gray-700 py-3'>
+                                  <div className="flex flex-col gap-1 px-3">
+                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>StunnerYPP Corp.</h1>
+                                    <span className=' text-slate-400'>Frontend Developer</span>
+                                    <span className=' text-slate-400'>November 2024 - Present</span>
+                                </div>
                                 <div className="flex flex-col gap-1 px-3">
                                     <h1 className='text-slate-50 tracking-tight leading-relaxed'>CCK City Network, Inc.</h1>
                                     <span className=' text-slate-400'>Software Engineer</span>
-                                    <span className=' text-slate-400'>August 2023 - Present</span>
-                                </div>
-                                <div className="flex flex-col gap-1 px-3">
-                                    <h1 className='text-slate-50 tracking-tight leading-relaxed'>Converge ICT Solutions</h1>
-                                    <span className=' text-slate-400'>Plant Records Engineer</span>
-                                    <span className=' text-slate-400'>March 2022 - May 2023</span>
+                                    <span className=' text-slate-400'>August 2023 - November 2024</span>
                                 </div>
                             </div>
                         </div>
