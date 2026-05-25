@@ -7,8 +7,8 @@ import React from 'react'
 const Home = () => {
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/cv/MikeTanaquin_CV_2024.pdf'; // Replace with the actual path to your PDF file
-        link.download = 'MikeTanaquin_CV_2024.pdf'; // The name of the file that will be downloaded
+        link.href = '/cv/Mike_Tanaquin_Resume_2026.pdf'; // Replace with the actual path to your PDF file
+        link.download = 'Mike_Tanaquin_Resume_2026.pdf'; // The name of the file that will be downloaded
         document.body.appendChild(link);
         link.click();
     };

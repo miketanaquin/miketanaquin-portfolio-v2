@@ -4,8 +4,8 @@ import React from 'react'
 const Footer = () => {
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/cv/MikeTanaquin_CV_2024.pdf';
-        link.download = 'MikeTanaquin_CV_2024.pdf';
+        link.href = '/cv/Mike_Tanaquin_Resume_2026.pdf';
+        link.download = 'Mike_Tanaquin_Resume_2026.pdf';
         document.body.appendChild(link);
         link.click();
     };
