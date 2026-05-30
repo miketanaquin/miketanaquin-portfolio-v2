@@ -61,11 +61,17 @@ const Nav = () => {
                     <>
                         <div
                             key={index}
-                            className={`cursor-pointer ${activeSection === item.id ? 'text-slate-100 underline underline-offset-8 decoration-orange-500' : ''
-                                }`}
+                            className={`cursor-pointer relative pb-2 transition-colors duration-300 group ${
+                                activeSection === item.id ? 'text-slate-100' : ''
+                            }`}
                             onClick={() => handleScrollToSection(item.id)}
                         >
                             {item.name}
+                            <span
+                                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-400 transition-all duration-500 ${
+                                    activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                                }`}
+                            />
                         </div>
                     </>
                 );
