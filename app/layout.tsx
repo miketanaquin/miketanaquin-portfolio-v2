@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/photo/miketanaquin.png",
+        url: "https://miketanaquin.netlify.app/photo/miketanaquin.png",
         width: 1200,
         height: 630,
         alt: "Mike Tanaquin portfolio image",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Mike Tanaquin | Front-End Developer",
     description:
       "Discover responsive, performance-first web applications by Mike Louie Tañaquin — a front-end developer from the Philippines.",
-    images: ["/photo/miketanaquin.png"],
+    images: ["https://miketanaquin.netlify.app/photo/miketanaquin.png"],
   },
 };
 
