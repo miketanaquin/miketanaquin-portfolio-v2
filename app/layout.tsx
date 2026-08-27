@@ -6,43 +6,70 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://miketanaquin.netlify.app"),
   title: {
-    default: "Mike Tanaquin | Front-End Developer",
-    template: "%s | Portfolio",
+    default: "Mike Louie Tañaquin | Front-End Developer",
+    template: "%s | Mike Tañaquin",
   },
   description:
-    "Portfolio of Mike Louie Tañaquin — a Filipino front-end developer building responsive, SEO-friendly web applications with React, Next.js, and Tailwind CSS.",
+    "Mike Louie Tañaquin is a front-end developer from the Philippines who builds thoughtful, responsive web experiences with React, Next.js, and Tailwind CSS.",
   keywords: [
     "Mike Tanaquin",
+    "Mike Louie Tañaquin",
     "Front-End Developer",
     "React Developer",
     "Next.js Portfolio",
+    "TypeScript Developer",
     "Tailwind CSS",
     "Web Developer Philippines",
     "UI/UX",
     "Responsive Web Design",
   ],
   authors: [{ name: "Mike Louie Tañaquin", url: "https://miketanaquin.dev" }],
+  creator: "Mike Louie Tañaquin",
+  publisher: "Mike Louie Tañaquin",
+  icons: {
+    icon: "/photo/miketanaquin.png",
+    apple: "/photo/miketanaquin.png",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Mike Tanaquin | Front-End Developer",
+    title: "Mike Louie Tañaquin | Front-End Developer",
     description:
-      "Explore the portfolio of Mike Louie Tañaquin, a driven front-end developer specializing in React, Next.js, Tailwind CSS, and accessible web experiences.",
+      "Explore the portfolio of Mike Louie Tañaquin, a front-end developer specializing in React, Next.js, TypeScript, and accessible digital experiences.",
     type: "website",
+    url: "/",
+    siteName: "Mike Louie Tañaquin Portfolio",
+    locale: "en_US",
     images: [
       {
-        url: "https://miketanaquin.netlify.app/photo/miketanaquin.png",
-        width: 1200,
-        height: 630,
+        url: "/photo/miketanaquin.png",
+        width: 1024,
+        height: 1024,
         alt: "Mike Tanaquin portfolio image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mike Tanaquin | Front-End Developer",
+    title: "Mike Louie Tañaquin | Front-End Developer",
     description:
-      "Discover responsive, performance-first web applications by Mike Louie Tañaquin — a front-end developer from the Philippines.",
-    images: ["https://miketanaquin.netlify.app/photo/miketanaquin.png"],
+      "Discover responsive web applications by Mike Louie Tañaquin, a front-end developer from the Philippines.",
+    creator: "@miketanaquin",
+    images: ["/photo/miketanaquin.png"],
   },
 };
 
