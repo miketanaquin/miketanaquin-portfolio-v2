@@ -6,47 +6,40 @@ const ProjectItems = (
     }: {
         items: Array<{
             title: string,
+            year: string,
             description: string,
-            exos: string,
-            tech: string,
-            db: string,
-            tasktype: string,
+            tech: string[],
         }>
     }
 ) => {
     return (
-        <div className="h-full lg:w-1/2">
+        <div className="h-full w-full space-y-6 lg:w-[68%]">
             {items.map((item, index) => (
-                <div className="py-3" key={index}>
-                    <div className='mb-5'>
-                        <h1 className='text-slate-50 text-2xl font-medium font-sans'>{item.title}</h1>
+                <article
+                    key={`${item.title}-${index}`}
+                    className="group rounded-2xl border border-white/10 bg-zinc-900/75 p-5 transition-all duration-300 hover:border-orange-500/20 hover:bg-zinc-900 sm:p-6"
+                >
+                    <div className='mb-4 flex items-center justify-between gap-3'>
+                        <h2 className='text-2xl font-medium text-slate-50'>{item.title}</h2>
+                        <span className='text-xs text-slate-400'>{item.year}</span>
                     </div>
-                    <div className='mb-5'>
-                        <h1 className='text-slate-50 tracking-tight leading-relaxed'>Description:</h1>
-                        <span className=' text-slate-400'>{item.description}</span>
-                    </div>
-                    <div className='grid grid-cols-2'>
-                        <div className='mb-5'>
-                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Execution OS:</h1>
-                            <span className=' text-slate-400'>{item.exos}</span>
-                        </div>
-                        <div className='mb-5'>
-                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Tech:</h1>
-                            <span className=' text-slate-400'>{item.tech}</span>
-                        </div>
-                    </div>
-                    <div className='grid grid-cols-2'>
-                        <div className='mb-5'>
-                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>DataBase:</h1>
-                            <span className=' text-slate-400'>{item.db}</span>
-                        </div>
-                        <div className='mb-5'>
-                            <h1 className='text-slate-50 tracking-tight leading-relaxed'>Task Type:</h1>
-                            <span className=' text-slate-400'>{item.tasktype}</span>
+
+                    <p className='mb-5 text-sm leading-7 text-slate-300'>{item.description}</p>
+
+                    <div className='mt-5'>
+                        <h3 className='mb-2 text-xs uppercase tracking-[0.18em] text-slate-400'>Tech stack</h3>
+                        <div className='flex flex-wrap gap-2'>
+                            {item.tech.map((tag, tagIndex) => (
+                                <span
+                                    key={`${item.title}-tag-${tagIndex}`}
+                                    className='rounded-full border border-white/10 bg-white/[0.02] px-2.5 py-1 text-xs text-slate-200'
+                                >
+                                    {tag}
+                                </span>
+                            ))}
                         </div>
                     </div>
-                    <div className="p-[.5px] mt-5 bg-gradient-to-r from-orange-500/0  via-orange-500 to-orange-500/0 rounded-lg"></div>
-                </div>
+                </article>
             ))}
         </div>
     )

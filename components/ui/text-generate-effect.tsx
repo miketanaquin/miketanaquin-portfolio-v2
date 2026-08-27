@@ -20,11 +20,13 @@ export const TextGenerateEffect = ({
     let wordsArray = words.split(" ");
 
     useEffect(() => {
+        const node = sectionRef.current;
+        if (!node) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Trigger the animation when the section comes into view
                         animate(
                             "span",
                             {
@@ -32,12 +34,11 @@ export const TextGenerateEffect = ({
                                 filter: filter ? "blur(0px)" : "none",
                             },
                             {
-                                duration: duration ? duration : 1,
+                                duration: duration || 1,
                                 delay: stagger(0.2),
                             }
                         );
                     } else {
-                        // Reset the animation when the section goes out of view
                         animate(
                             "span",
                             {
@@ -51,15 +52,12 @@ export const TextGenerateEffect = ({
                     }
                 });
             },
-            { threshold: 0.5 } // Adjust the threshold as needed
+            { threshold: 0.5 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
+        observer.observe(node);
         return () => observer.disconnect();
-    }, [scope.current]);
+    }, [animate, duration, filter]);
 
     const renderWords = () => {
         return (

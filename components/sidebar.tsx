@@ -8,44 +8,29 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { navItems } from "@/lib/site-data";
 import { useEffect, useState } from "react";
 
-
-const sideBarItems = [
-    {
-        name: "Home",
-        id: "home",
-    },
-    {
-        name: "Projects",
-        id: "projects",
-    },
-    {
-        name: "About",
-        id: "about",
-    },
-];
-
 const Sidebar = () => {
-    const pathName = usePathname();
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
         const handleScroll = () => {
-            const sectionOffsets = sideBarItems.map((section) => {
-                const element = document.getElementById(section.id);
-                return {
-                    id: section.id,
-                    offsetTop: element.offsetTop,
-                    offsetHeight: element.offsetHeight,
-                };
-            });
+            const sections = navItems
+                .map((section) => {
+                    const element = document.getElementById(section.id);
+                    if (!element) return null;
+
+                    return {
+                        id: section.id,
+                        offsetTop: element.offsetTop,
+                        offsetHeight: element.offsetHeight,
+                    };
+                })
+                .filter((section): section is { id: string; offsetTop: number; offsetHeight: number } => Boolean(section));
 
             const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-            const currentSection = sectionOffsets.find(
+            const currentSection = sections.find(
                 (section) =>
                     scrollPosition >= section.offsetTop &&
                     scrollPosition < section.offsetTop + section.offsetHeight
@@ -56,17 +41,21 @@ const Sidebar = () => {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
-    const handleScrollToSection = (id: any) => {
+    const handleScrollToSection = (id: string) => {
         const section = document.getElementById(id);
-        section.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(id); // Set active section when clicked
+        if (!section) return;
+
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActiveSection(id);
     };
+
     return (
         <div className="md:hidden overflow-x-hidden">
             <Sheet>
@@ -80,24 +69,22 @@ const Sidebar = () => {
                         <SheetTitle>Mike<span className="text-orange-500">.</span></SheetTitle>
                     </SheetHeader>
 
-
-
-                    {sideBarItems.map((item, index) => {
-                        return (
-                            <div className="grid gap-4 py-4" key={index}>
-                                <SheetClose asChild className="grid grid-cols-4 items-center gap-4 font-medium" >
-                                    <div className={`cursor-pointer ${activeSection === item.id ? 'text-slate-100 underline underline-offset-8 decoration-orange-500' : ''}`}
-                                        onClick={() => handleScrollToSection(item.id)}>
-                                        {item.name}
-                                    </div>
-                                </SheetClose>
-                            </div>
-                        );
-                    })}
-
+                    {navItems.map((item, index) => (
+                        <div className="grid gap-4 py-4" key={`${item.id}-${index}`}>
+                            <SheetClose asChild className="grid grid-cols-4 items-center gap-4 font-medium">
+                                <div
+                                    className={`cursor-pointer ${activeSection === item.id ? "text-slate-100 underline underline-offset-8 decoration-orange-500" : ""}`}
+                                    onClick={() => handleScrollToSection(item.id)}
+                                >
+                                    {item.name}
+                                </div>
+                            </SheetClose>
+                        </div>
+                    ))}
                 </SheetContent>
             </Sheet>
         </div>
-    )
-}
+    );
+};
+
 export default Sidebar;

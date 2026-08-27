@@ -19,27 +19,36 @@ export const TracingBeam = ({
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start start", "end start"],
+        offset: ["start start", "end end"],
     });
 
     const contentRef = useRef<HTMLDivElement>(null);
     const [svgHeight, setSvgHeight] = useState(0);
 
     useEffect(() => {
-        if (contentRef.current) {
-            setSvgHeight(contentRef.current.offsetHeight);
-        }
+        const updateHeight = () => {
+            if (contentRef.current) {
+                setSvgHeight(contentRef.current.offsetHeight);
+            }
+        };
+
+        updateHeight();
+        window.addEventListener("resize", updateHeight);
+
+        return () => window.removeEventListener("resize", updateHeight);
     }, []);
 
+    const beamHeight = Math.max(svgHeight, 120);
+
     const y1 = useSpring(
-        useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
+        useTransform(scrollYProgress, [0, 0.8], [50, beamHeight]),
         {
             stiffness: 500,
             damping: 90,
         }
     );
     const y2 = useSpring(
-        useTransform(scrollYProgress, [0, 1], [50, svgHeight - 100]),
+        useTransform(scrollYProgress, [0, 1], [50, beamHeight - 100]),
         {
             stiffness: 500,
             damping: 90,
@@ -49,7 +58,7 @@ export const TracingBeam = ({
     return (
         <motion.div
             ref={ref}
-            className={cn("relative w-full h-full", className)}
+            className={cn("relative w-full", className)}
         >
             <div className="absolute -left-12 top-3">
                 <motion.div
@@ -80,23 +89,24 @@ export const TracingBeam = ({
                     />
                 </motion.div>
                 <svg
-                    viewBox={`0 0 20 ${svgHeight}`}
+                    viewBox={`0 0 20 ${beamHeight}`}
                     width="20"
-                    height={svgHeight} // Set the SVG height
-                    className=" ml-4 block"
+                    height={beamHeight}
+                    className="ml-4 block"
                     aria-hidden="true"
                 >
                     <motion.path
-                        d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
+                        d={`M 10 0 L 10 ${beamHeight}`}
                         fill="none"
                         stroke="#9091A0"
                         strokeOpacity="0.16"
+                        strokeWidth="1.25"
                         transition={{
                             duration: 10,
                         }}
                     ></motion.path>
                     <motion.path
-                        d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
+                        d={`M 10 0 L 10 ${beamHeight}`}
                         fill="none"
                         stroke="url(#gradient)"
                         strokeWidth="1.25"

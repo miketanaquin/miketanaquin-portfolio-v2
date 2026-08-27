@@ -159,22 +159,24 @@ const Skills = () => {
         },
     ];
     return (
-        <section className='w-full h-1/3 bg-slate-700'>
+        <section id='skills' className='w-full bg-zinc-950 py-16 md:py-20'>
             <div className="container">
-                <div className="flex flex-col md:flex-row justify-center gap-6">
-                    <div className='flex flex-col justify-center text-sm text-justify md:w-1/4 mt-8 md:mt-0 md:text-start lg:text-lg font-light text-wrap '>
-                        <h1>Explore the diverse set of technologies that drive my projects. From modern front-end frameworks to robust back-end solutions, I leverage a variety of tools to craft innovative and efficient applications.
-                        </h1>
-                    </div>
-                    <div className="md:w-3/4 flex flex-col antialiased items-center justify-center relative overflow-hidden">
-                        <InfiniteMovingCards
-                            items={stacks}
-                            direction="right"
-                            speed="slow"
-                        />
-                    </div>
+                <div className="mb-8 md:mb-10">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-orange-400">Stack</p>
+                    <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                        Tools I build with.
+                    </h2>
                 </div>
 
+                <div className="space-y-5 md:space-y-6">
+                    <p className="max-w-3xl text-sm leading-6 text-slate-300 md:text-base md:leading-7">
+                        I combine modern frontend tooling, backend reliability, and design systems to build thoughtful digital products that feel fast, clear, and premium.
+                    </p>
+
+                    <div className="relative overflow-hidden to-transparent p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] md:p-5">
+                        <InfiniteMovingCards items={stacks} direction="right" speed="slow" />
+                    </div>
+                </div>
             </div>
         </section>
     )

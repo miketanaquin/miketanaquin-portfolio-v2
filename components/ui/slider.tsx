@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
     items,
@@ -24,11 +24,26 @@ export const InfiniteMovingCards = ({
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
 
-    useEffect(() => {
-        addAnimation();
-    }, []);
     const [start, setStart] = useState(false);
-    function addAnimation() {
+
+    const getDirection = useCallback(() => {
+        if (containerRef.current) {
+            containerRef.current.style.setProperty(
+                "--animation-direction",
+                direction === "right" ? "forwards" : "reverse"
+            );
+        }
+    }, [direction]);
+
+    const getSpeed = useCallback(() => {
+        if (containerRef.current) {
+            const duration =
+                speed === "fast" ? "30s" : speed === "normal" ? "60s" : "180s";
+            containerRef.current.style.setProperty("--animation-duration", duration);
+        }
+    }, [speed]);
+
+    const addAnimation = useCallback(() => {
         if (containerRef.current && scrollerRef.current) {
             const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -43,74 +58,52 @@ export const InfiniteMovingCards = ({
             getSpeed();
             setStart(true);
         }
-    }
-    const getDirection = () => {
-        if (containerRef.current) {
-            if (direction === "right") {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "forwards"
-                );
-            } else {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "reverse"
-                );
-            }
-        }
-    };
-    const getSpeed = () => {
-        if (containerRef.current) {
-            if (speed === "fast") {
-                containerRef.current.style.setProperty("--animation-duration", "20s");
-            } else if (speed === "normal") {
-                containerRef.current.style.setProperty("--animation-duration", "40s");
-            } else {
-                containerRef.current.style.setProperty("--animation-duration", "300s");
-            }
-        }
-    };
+    }, [getDirection, getSpeed]);
+
+    useEffect(() => {
+        addAnimation();
+    }, [addAnimation]);
+
     return (
         <div
             ref={containerRef}
             className={cn(
-                "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+                "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]",
                 className
             )}
         >
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    " flex min-w-full shrink-0 gap-4 w-max flex-nowrap",
-                    start && "animate-scroll ",
+                    "flex min-w-full shrink-0 w-max flex-nowrap gap-3 md:gap-4",
+                    start && "animate-scroll",
                     pauseOnHover && "hover:[animation-play-state:paused]"
                 )}
             >
-                {items.map((item, idx) => (
+                {items.map((item) => (
                     <li
-                        className="w-[350px] max-w-full relative flex-shrink-0 flex-col justify-center px-8 py-6 md:w-[450px]"
                         key={item.title}
+                        className="relative w-[220px] max-w-full shrink-0 rounded-[22px] border border-white/10 bg-zinc-900/90 px-3 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_18px_30px_rgba(0,0,0,0.25)] transition duration-300 hover:border-orange-400/40 hover:bg-zinc-900 sm:w-[240px] md:w-[260px] md:px-4 md:py-4"
                     >
-                        <blockquote>
-                            <a href={item.link} target="_blank"
-                                rel="noopener noreferrer">
-                                <div
-                                    aria-hidden="true"
-                                    className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-                                ></div>
-                                <div className="flex flex-row gap-5">
+                        <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block h-full"
+                        >
+                            <div className="mb-3 flex items-center gap-3">
+                                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-zinc-950/80 text-zinc-100 shadow-inner shadow-orange-500/5 md:h-10 md:w-10">
                                     {item.logo}
-                                    <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                                        {item.title}
-                                    </span>
                                 </div>
-                                <div className="relative z-20 mt-6 flex flex-row items-center text-justify">
-                                    <span className=" text-sm leading-[1.6] text-gray-400 font-normal overflow-hidden">
-                                        {item.description}
-                                    </span>
-                                </div>
-                            </a>
-                        </blockquote>
+                                <span className="text-sm font-medium text-white md:text-base">
+                                    {item.title}
+                                </span>
+                            </div>
+
+                            <p className="line-clamp-3 text-xs leading-5 text-slate-400 md:text-sm md:leading-6">
+                                {item.description}
+                            </p>
+                        </a>
                     </li>
                 ))}
             </ul>
