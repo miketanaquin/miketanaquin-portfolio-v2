@@ -15,7 +15,7 @@ const About = () => {
           className="flex flex-col gap-8"
         >
           <div className="max-w-3xl">
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-orange-400">About</p>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.32em] text-orange-500">About</p>
             <h2 className="text-3xl font-semibold text-white md:text-5xl">
               Front-end engineer with a sharp eye for product clarity.
             </h2>
@@ -26,7 +26,7 @@ const About = () => {
               <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Background</p>
               <div className="mt-6 space-y-3">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-orange-300">Education</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-orange-500">Education</p>
                   <h3 className="mt-2 text-xl font-medium text-white">University of the East, Manila</h3>
                 </div>
                 <p className="max-w-sm text-slate-300">Bachelor&apos;s Degree in Electronics and Communications Engineering</p>
@@ -44,7 +44,7 @@ const About = () => {
                     <p className="text-sm uppercase tracking-[0.22em] text-slate-400">Current</p>
                     <h3 className="mt-2 text-xl font-medium text-white">StunnerYPP Corp.</h3>
                   </div>
-                  <span className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-300">
+                  <span className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-500">
                     Frontend Developer
                   </span>
                 </div>
@@ -57,7 +57,7 @@ const About = () => {
                     <p className="text-sm uppercase tracking-[0.22em] text-slate-400">Previous</p>
                     <h3 className="mt-2 text-xl font-medium text-white">CCK City Network, Inc.</h3>
                   </div>
-                  <span className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-200">
+                  <span className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-500">
                     Software Engineer
                   </span>
                 </div>
@@ -69,7 +69,7 @@ const About = () => {
           <div className="mt-2 rounded-3xl border border-white/10 bg-zinc-900/75 p-6 md:p-10">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
-                <p className="text-xs font-medium uppercase tracking-[0.28em] text-orange-400">Let&apos;s work together</p>
+                <p className="text-xs font-medium uppercase tracking-[0.28em] text-orange-500">Let&apos;s work together</p>
                 <h2 className="max-w-3xl text-2xl font-semibold text-white md:text-4xl">
                   Building thoughtful product experiences that feel premium from day one.
                 </h2>
@@ -89,22 +89,22 @@ const About = () => {
                   href="https://www.linkedin.com/in/mike-louie-tanaquin-003227217/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-orange-400 hover:text-orange-300"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-orange-400 hover:text-orange-500"
                 >
                   Connect on LinkedIn
                 </a>
               </div>
 
               <div className="mt-1 grid gap-3 border-t border-white/10 pt-4 text-sm text-slate-300 md:grid-cols-3">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tanaquinmike@gmail.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 transition hover:text-orange-300">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tanaquinmike@gmail.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 transition hover:text-orange-500">
                   <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
                   tanaquinmike@gmail.com
                 </a>
-                <a href="https://github.com/miketanaquin" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 transition hover:text-orange-300">
+                <a href="https://github.com/miketanaquin" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 transition hover:text-orange-500">
                   <span className="h-2.5 w-2.5 rounded-full bg-orange-300" />
                   github.com/miketanaquin
                 </a>
-                <a href="tel:+639061395059" className="group flex items-center gap-2 transition hover:text-orange-300">
+                <a href="tel:+639061395059" className="group flex items-center gap-2 transition hover:text-orange-500">
                   <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
                   +63 906 139 5059
                 </a>

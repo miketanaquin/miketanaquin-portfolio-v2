@@ -48,7 +48,7 @@ const Footer = () => {
       <div className="container py-10 md:py-12">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_auto] md:items-end">
           <div className="space-y-3">
-            <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-orange-400">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-orange-500">
               Available for work
             </p>
             <div>
@@ -83,7 +83,7 @@ const Footer = () => {
             <p className="text-sm text-slate-300">Let&apos;s build something thoughtful.</p>
             <button
               onClick={handleDownload}
-              className="inline-flex items-center justify-center rounded-full border border-orange-400/40 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-200 transition duration-300 hover:border-orange-300 hover:bg-orange-500/20 hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border border-orange-400/40 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-500 transition duration-300 hover:border-orange-300 hover:bg-orange-500/20 hover:text-white"
             >
               Download Resume
             </button>

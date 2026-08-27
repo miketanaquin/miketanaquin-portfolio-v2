@@ -162,7 +162,7 @@ const Skills = () => {
         <section id='skills' className='w-full bg-zinc-950 py-16 md:py-20'>
             <div className="container">
                 <div className="mb-8 md:mb-10">
-                    <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-orange-400">Stack</p>
+                    <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-orange-500">Stack</p>
                     <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
                         Tools I build with.
                     </h2>

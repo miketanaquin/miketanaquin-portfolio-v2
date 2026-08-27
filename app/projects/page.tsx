@@ -13,7 +13,7 @@ const Projects = () => {
                 <TracingBeam>
                     <div className='flex flex-col gap-8 lg:flex-row lg:gap-10'>
                         <div className='relative flex h-full flex-col lg:sticky lg:top-1/3 lg:w-[32%]'>
-                            <p className='mb-3 text-xs font-medium uppercase tracking-[0.3em] text-orange-400'>Selected work</p>
+                            <p className='mb-3 text-xs font-medium uppercase tracking-[0.3em] text-orange-500'>Selected work</p>
                             <h1 className='mb-4 text-3xl font-medium text-slate-50 lg:text-5xl'>Projects</h1>
                             <div className='max-w-xl'>
                                 <TextGenerateEffect words={words} />
