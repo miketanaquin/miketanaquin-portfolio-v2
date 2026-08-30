@@ -20,10 +20,10 @@ export const projectItems: Array<{
   tasktype: string;
 }> = [
     {
-    title: "Video Streaming Website",
+    title: "Multimedia Streaming Website",
     year: "2024-Present",
     description:
-      "Developed a dynamic video-sharing platform that allows users to create accounts, upload and share their own video content, and discover videos from other creators. The platform features channel subscriptions and interactive engagement tools, including likes, comments, and shares. This project demonstrates strong web development skills in building an interactive, community-driven platform that encourages content sharing, user engagement, and video discovery.",
+      "Developed a dynamic multimedia streaming platform that allows users to create accounts, upload and share their own video content, and discover videos from other creators. The platform features channel subscriptions and interactive engagement tools, including likes, comments, and shares. This project demonstrates strong web development skills in building an interactive, community-driven platform that encourages content sharing, user engagement, and video discovery.",
     exos: "Web Application",
     tech: [
       "Nextjs",
